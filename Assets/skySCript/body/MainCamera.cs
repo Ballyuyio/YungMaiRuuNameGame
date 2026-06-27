@@ -6,6 +6,7 @@ public class MainCamera : MonoBehaviour
     public Vector3 offset = new Vector3(0f, 10f, -10f);
     public float followSpeed = 8f;
 
+    // Changed from Update() to LateUpdate()
     void LateUpdate()
     {
         if (player == null)
@@ -15,7 +16,7 @@ public class MainCamera : MonoBehaviour
         transform.position = Vector3.Lerp(
             transform.position,
             targetPosition,
-            followSpeed * Time.deltaTime
+            followSpeed * Time.deltaTime // Time.deltaTime is correct here!
         );
     }
 }
